@@ -1,15 +1,15 @@
 public class Semaforo {
-    private volatile boolean isLocked = false;
+    private volatile int value = 0;
 
     public synchronized void lock() throws InterruptedException {
-        while (isLocked) {
+        while (value > 2) {
             wait();
         }
-        isLocked = true;
+        value++;
     }
 
     public synchronized void release() {
-        isLocked = false;
+        value--;
         notify();
     }
 }
