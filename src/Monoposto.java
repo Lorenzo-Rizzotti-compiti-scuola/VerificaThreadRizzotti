@@ -21,6 +21,12 @@ public class Monoposto extends Thread {
                 Box.cambioGomme(this);
             }
             System.out.println("Giro " + (i + 1) + " del pilota " + nomePilota + " della scuderia " + scuderia);
+
+            int retireChance = (int) (Math.random() * (20 - 1)) + 1;
+            if(retireChance == 17){
+                System.out.println("Il pilota " + nomePilota + " della scuderia " + scuderia + " ha ritirato per un avaria il motore");
+                return;
+            }
         }
         System.out.println("Il pilota " + nomePilota + " della scuderia " + scuderia + " ha terminato la gara");
     }
